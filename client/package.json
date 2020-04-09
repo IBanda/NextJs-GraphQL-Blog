@@ -1,0 +1,24 @@
+{
+    "name": "client",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next",
+        "start": "next start",
+        "build": "next build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@apollo/react-hooks": "^3.1.4",
+        "apollo-boost": "^0.4.7",
+        "apollo-link-http": "^1.5.16",
+        "graphql": "^15.0.0",
+        "next": "^9.3.4",
+        "next-with-apollo": "^5.0.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1"
+    }
+}
