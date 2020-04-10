@@ -45,8 +45,16 @@ type Comment{
     email: String
     body:String
 }
+type PostsConnection{
+   cursor:String!
+   hasMore:Boolean
+   posts:[Post]
+}
 type Query{
+    posts(pageSize:Int,after:String):PostsConnection
+    """
     posts:[Post]
+    """
     post(id:ID!):Post
     users:[User]
     user(id:ID!):User

@@ -1,8 +1,15 @@
-
+const paginateHelper=require('../utils/paginate_helper')
 const resolvers={
 Query:{
- posts(_,__,{dataSources}){
-      return dataSources.DataAPI.getPosts();
+ async posts(_,{pageSize=12,after},{dataSources}){
+      const posts= await  dataSources.DataAPI.getPosts();
+     const allPosts=paginateHelper({pageSize,after,posts})
+      return{
+          posts:allPosts,
+          cursor:allPosts.length? String(allPosts[allPosts.length-1].id):null,
+          hasMore:allPosts.length
+        ?allPosts[allPosts.length-1].id !== posts[posts.length-1].id:false
+      };
     },
   users(_,__,{dataSources}){
       return dataSources.DataAPI.getUsers();
